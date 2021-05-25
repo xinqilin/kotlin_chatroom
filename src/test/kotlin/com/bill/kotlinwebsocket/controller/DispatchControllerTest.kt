@@ -1,5 +1,6 @@
 package com.bill.kotlinwebsocket.controller
 
+import com.bill.kotlinwebsocket.common.Logging
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest(DispatchController::class)
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS) -> properties 已加
-class DispatchControllerTest(@Autowired val mockMvc: MockMvc) {
+class DispatchControllerTest(@Autowired val mockMvc: MockMvc){
 
 //    @Autowired 這樣也可
 //    @Autowired lateinit var mockMvc: MockMvc
@@ -47,7 +48,9 @@ class DispatchControllerTest(@Autowired val mockMvc: MockMvc) {
 //            Mockito.`when`(securityContext.authentication).thenReturn(authentication)
 //            SecurityContextHolder.setContext(securityContext)
 //        }
-                .andDo(MockMvcResultHandlers.print())
+                .andDo{
+                    MockMvcResultHandlers.print()
+                }
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.content().string("Hello"))
 
