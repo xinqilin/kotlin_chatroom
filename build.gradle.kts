@@ -6,6 +6,8 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
+//    (Spring 版本的 All-open compiler plugin 包裝) 會自動幫我們把 class 和方法都預設打開成 open，
+//    因為在 Kotlin 中 class 和方法預設都是 final
     kotlin("plugin.jpa") version "1.3.72"
 }
 

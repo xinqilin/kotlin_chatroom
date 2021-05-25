@@ -10,6 +10,6 @@ class DispatchController {
 
     @GetMapping("")
     fun redirectToMain(): String{
-        return "main";
+        return "Hello";
     }
 }
